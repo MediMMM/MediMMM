@@ -1,0 +1,5 @@
+package com.wtp.repository;
+
+public class UserRepository {
+
+}

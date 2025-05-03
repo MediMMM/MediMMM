@@ -1,0 +1,19 @@
+package com.wtp.utility;
+
+import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.cloud.gateway.filter.factory.AbstractGatewayFilterFactory;
+import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerWebExchange;
+
+@Component
+public class LoggingGatewayFilterFactory extends AbstractGatewayFilterFactory<Object> {
+
+    @Override
+    public GatewayFilter apply(Object config) {
+        return (ServerWebExchange exchange, GatewayFilterChain chain) -> {
+            System.out.println("Request Path: " + exchange.getRequest().getURI().getPath());
+            return chain.filter(exchange);
+        };
+    }
+}

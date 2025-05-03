@@ -1,0 +1,23 @@
+package com.wtp.utility;
+
+import org.springframework.cloud.gateway.filter.GatewayFilter;
+import org.springframework.cloud.gateway.filter.GatewayFilterChain;
+import org.springframework.stereotype.Component;
+import org.springframework.web.server.ServerWebExchange;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import reactor.core.publisher.Mono;
+
+@Component
+public class LoggingGatewayFilter implements GatewayFilter {
+
+    private static final Logger logger = LoggerFactory.getLogger(LoggingGatewayFilter.class);
+
+    @Override
+    public Mono<Void> filter(ServerWebExchange exchange, GatewayFilterChain chain) {
+        // Log the incoming request URI
+        logger.info("Request to API Gateway: " + exchange.getRequest().getURI());
+        // Proceed with the request and chain filter
+        return chain.filter(exchange);
+    }
+}

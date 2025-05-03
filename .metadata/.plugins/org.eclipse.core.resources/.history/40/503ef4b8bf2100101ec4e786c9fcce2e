@@ -1,0 +1,5 @@
+package com.wtp.entity;
+
+public class User {
+
+}
