@@ -1,0 +1,5 @@
+package com.wtp.controller;
+
+public class UserController {
+
+}

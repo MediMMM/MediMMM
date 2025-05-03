@@ -1,0 +1,22 @@
+spring.application.name=user-service
+server.port=8081
+
+# Eureka Configuration
+eureka.client.service-url.defaultZone=http://localhost:8761/eureka
+eureka.client.register-with-eureka=true
+eureka.client.fetch-registry=true
+
+# ===============================
+# PostgreSQL Database Configuration
+# ===============================
+spring.datasource.url=jdbc:postgresql://localhost:5432/MyUser_db
+spring.datasource.username=postgres
+spring.datasource.password=postgres
+spring.datasource.driver-class-name=org.postgresql.Driver
+
+# ===============================
+# JPA / Hibernate Configuration
+# ===============================
+spring.jpa.hibernate.ddl-auto=update
+spring.jpa.show-sql=true
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect

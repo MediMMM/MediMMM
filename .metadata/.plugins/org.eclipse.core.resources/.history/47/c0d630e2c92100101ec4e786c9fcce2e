@@ -1,0 +1,5 @@
+package com.wtp.utility;
+
+public class LoggingGatewayFilter {
+
+}
